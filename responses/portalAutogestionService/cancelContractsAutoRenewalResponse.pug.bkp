@@ -1,0 +1,12 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <cancelContractsAutoRenewalResponse xmlns="http://www.firstdata.com/fdadvancedsale/">
+         <returnService>
+            <return>
+               <code>0</code>
+               <description>cancelContractsAutoRenewal realizado con exito</description>
+            </return>
+         </returnService>
+      </cancelContractsAutoRenewalResponse>
+   </S:Body>
+</S:Envelope>

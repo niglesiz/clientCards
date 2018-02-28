@@ -1,0 +1,27 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <findAlertsByUserResponse xmlns="http://www.firstdata.com/fdcomar/">
+         <returnService>
+            <return>
+               <code>00000</code>
+               <description>FINDALERTSBYUSER REALIZADO CON ÉXITO</description>
+            </return>
+         </returnService>
+         <alerts>
+            <alert>
+               <alertId>1</alertId>
+               <alertDescription>LIQUIDACIÓN DISPONIBLE</alertDescription>
+               <methods>
+                  <method>
+                     <sendMethod>MAIL</sendMethod>
+                     <param>
+                        <key>mail</key>
+                        <valor>USER00000082@FIRSTDATA.COM.AR</valor>
+                     </param>
+                  </method>
+               </methods>
+            </alert>
+         </alerts>
+      </findAlertsByUserResponse>
+   </S:Body>
+</S:Envelope>
