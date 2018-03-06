@@ -21,13 +21,13 @@ var portalAutogestionServiceRoute = require('./routes/portalAutogestionService')
 
 
 //Routes
-app.use('/fdcomar-proxy/http/fdcomar/userServices', userServicesRoutes);
+app.use('/fdcomar-services/userServices', userServicesRoutes);
 app.use('/fdcomar-services/commerceQueryServices' , findCommercesRoutes)
-app.use('/fdcomar-proxy/http/fdcomar/reportServices' , reportsRoutes)
+app.use('/fdcomar-services/reportServices' , reportsRoutes)
 app.use('/fdcomar-services/alertService' , alertServiceRoute);
-app.use('/fdcomar-services/premiumService' , premiumServiceRoute);
-app.use('/fdcomar-services/valService' , portalAutogestionServiceRoute);
-app.use('/fdcomar-services/advancedSalesService', portalAutogestionServiceRoute);
+app.use('/fdcomar-services/commerceServices' , premiumServiceRoute);
+app.use('/fd-advanced-sale-services/valServices' , portalAutogestionServiceRoute);
+app.use('/fd-advanced-sale-services/advancedSalesServices', portalAutogestionServiceRoute);
  
 
 //Start server
