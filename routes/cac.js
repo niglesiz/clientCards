@@ -15,32 +15,32 @@ module.exports = (function() {
 		var body = req.body[soap+'envelope'][soap+'body'][0] || '';
 		console.log('body :' + body );
 
-		if(ns2+'checkavailability' in body){
+		if((ns2+'checkavailability') in body){
 			checkAvailability(req,res);
 			return;
 		}
 		
-		if(ns2+'availablecontracts' in body){
+		if((ns2+'availablecontracts') in body){
 			availableContracts(req,res);
 			return;
 		}
 		
-		if(ns2+'activecontracts' in body){
+		if((ns2+'activecontracts') in body){
 			activeContracts(req,res);
 			return;
 		}
 		
-		if(ns2+'cancelcontractsautorenewal' in body){
+		if((ns2+'cancelcontractsautorenewal') in body){
 			cancelContractsAutoRenewal(req,res);
 			return;
 		}
 		
-		if(ns2+'enrollcontracts' in body){
+		if((ns2+'enrollcontracts') in body){
 			enrollContracts(req,res);
 			return;
 		}
 		
-		if(ns2+'advancedsalesavailability' in body){
+		if((ns2+'advancedsalesavailability') in body){
 			advancedSalesAvailability(req,res);
 			return;
 		}
@@ -49,42 +49,42 @@ module.exports = (function() {
 	});
 
 	function checkAvailability(req, res) {
-		var compiledFunction = pug.compileFile('responses/portalAutogestionService/checkAvailabilityResponse.pug');
+		var compiledFunction = pug.compileFile('responses/cac/checkAvailabilityResponse.pug');
 		var buffer = compiledFunction({});
 		res.set('Content-Type', 'text/xml');
 		res.send(buffer);
 	}
 	
 	function availableContracts(req, res) {
-		var compiledFunction = pug.compileFile('responses/portalAutogestionService/availableContractsResponse.pug');
+		var compiledFunction = pug.compileFile('responses/cac/availableContractsResponse.pug');
 		var buffer = compiledFunction({});
 		res.set('Content-Type', 'text/xml');
 		res.send(buffer);
 	}
 	
 	function activeContracts(req, res) {
-		var compiledFunction = pug.compileFile('responses/portalAutogestionService/activeContractsResponse.pug');
+		var compiledFunction = pug.compileFile('responses/cac/activeContractsResponse.pug');
 		var buffer = compiledFunction({});
 		res.set('Content-Type', 'text/xml');
 		res.send(buffer);
 	}
 	
 	function cancelContractsAutoRenewal(req, res) {
-		var compiledFunction = pug.compileFile('responses/portalAutogestionService/cancelContractsAutoRenewalResponse.pug');
+		var compiledFunction = pug.compileFile('responses/cac/cancelContractsAutoRenewalResponse.pug');
 		var buffer = compiledFunction({});
 		res.set('Content-Type', 'text/xml');
 		res.send(buffer);
 	}
 	
 	function enrollContracts(req, res) {
-		var compiledFunction = pug.compileFile('responses/portalAutogestionService/enrollContractsResponse.pug');
+		var compiledFunction = pug.compileFile('responses/cac/enrollContractsResponse.pug');
 		var buffer = compiledFunction({});
 		res.set('Content-Type', 'text/xml');
 		res.send(buffer);
 	}
 	
 	function advancedSalesAvailability(req, res) {
-		var compiledFunction = pug.compileFile('responses/portalAutogestionService/advancedSalesAvailabilityResponse.pug');
+		var compiledFunction = pug.compileFile('responses/cac/advancedSalesAvailabilityResponse.pug');
 		var buffer = compiledFunction({});
 		res.set('Content-Type', 'text/xml');
 		res.send(buffer);
