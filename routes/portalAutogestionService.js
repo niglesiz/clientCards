@@ -10,8 +10,9 @@ module.exports = (function() {
 		if ( req.body['soap-env:'+'envelope'] != undefined)
 			soap = 'soap-env:' ;
 
-		var ns2 = '';
+		var ns2 = 'ns2:';
 
+		//console.log  (req.body.envelope.body[0]) 
 		var body = req.body[soap+'envelope'][soap+'body'][0] || '';
 		console.log('body :' + body );
 
@@ -40,7 +41,15 @@ module.exports = (function() {
 			return;
 		}
 		
+		console.log("advancedsalesavailability") ;
+		console.log( JSON.stringify(body));
+		
+		
+		// {"ns2:advancedsalesavailability":[{"$":{"xmlns:ns2":"http://www.firstdata.com/fdadvancedsale/"},"ns2:country":["1"],"ns2:listfiscalnumber":["16100"],"ns2:listproductcode":["1435530"]}]}
+
+
 		if(ns2+'advancedsalesavailability' in body){
+			console.log("advancedsalesavailability 1") ;
 			advancedSalesAvailability(req,res);
 			return;
 		}
