@@ -6,13 +6,9 @@ module.exports = (function() {
     var api = express.Router();
 
 	api.post('/', function(req, res, next) {
-		console.log('Firstdata mock USER SERVICE'  + req );
-		var compiledFunction = pug.compileFile('responses/userServices/loginOkResponse.pug');
-		var buffer = compiledFunction({});
-		res.set('Content-Type', 'text/xml');
-		res.send(buffer);
+		var jsonObj = require('../responses/cac/availableContractsResponse.json')
+		res.json(jsonObj);
 	});
-
+	
     return api;
 })();
-

@@ -19,6 +19,10 @@ module.exports = (function() {
 			respondBalanceSummary(req,res);
 			return;
 		}
+		if('ns2:financingchange' in body){
+			responceFinancingchange(req,res);
+			return;
+		}
 		res.send();		
 	});
 
@@ -38,6 +42,14 @@ module.exports = (function() {
     }
 
 	function respondBalanceSummary(req, res) {
+		console.log("balance");
+		var compiledFunction = pug.compileFile('responses/balanceSummary/balanceSummaryResponse.pug');
+		var buffer = compiledFunction({});
+		res.set('Content-Type', 'text/xml');
+		res.send(buffer);
+	}
+	
+	function responceFinancingchange(req, res) {
 		console.log("balance");
 		var compiledFunction = pug.compileFile('responses/balanceSummary/balanceSummaryResponse.pug');
 		var buffer = compiledFunction({});

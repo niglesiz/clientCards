@@ -1,0 +1,213 @@
+<xs:schema xmlns:tns="http://www.firstdata.com/fdadvancedsale/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.firstdata.com/fdadvancedsale/">
+
+<xs:element name="activeContracts" type="tns:activeContractsReqType"></xs:element>
+
+<xs:element name="activeContractsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="contractsList" type="tns:activeContractResType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="availableContracts" type="tns:availableContractsReqType"></xs:element>
+
+<xs:element name="availableContractsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="availableList" type="tns:availableContractResType" maxOccurs="unbounded"></xs:element>
+<xs:element name="availableAmount" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="cancelContractsAutoRenewal" type="tns:cancelContractsAutoRenewalReqType"></xs:element>
+
+<xs:element name="cancelContractsAutoRenewalResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="contractsRes" type="tns:cancelContractsAutoRenewalResType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="checkAvailability" type="tns:checkAvailabilityRequestType"></xs:element>
+
+<xs:element name="checkAvailabilityResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType" minOccurs="0"></xs:element>
+<xs:element name="isAvailable" type="xs:boolean" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="enrollContracts" type="tns:enrollContractsReqType"></xs:element>
+
+<xs:element name="enrollContractsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="contractsRes" type="tns:enrollContractResType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="cancelContractsAutoRenewalResType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="brandCode" type="xs:int"></xs:element>
+<xs:element name="brandDescription" type="xs:string"></xs:element>
+<xs:element name="countryCode" type="xs:string"></xs:element>
+<xs:element name="countryDescription" type="xs:string"></xs:element>
+<xs:element name="currencyCode" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="currencyDescription" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="code" type="xs:string"></xs:element>
+<xs:element name="description" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelContractAutoRenewalReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="userCod" type="xs:string"></xs:element>
+<xs:element name="productCode" type="xs:int"></xs:element>
+<xs:element name="country" type="xs:string"></xs:element>
+<xs:element name="amount" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tax" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent1" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent2" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent3" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent4" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent5" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="taxCode" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="entity" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="office" type="xs:int" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelContractsAutoRenewalReqType">
+<xs:sequence>
+<xs:element name="contracts" type="tns:cancelContractAutoRenewalReqType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ReturnServiceType">
+<xs:sequence>
+<xs:element name="return" type="tns:returnType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnType">
+<xs:sequence>
+<xs:element name="code" type="xs:string"></xs:element>
+<xs:element name="description" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkAvailabilityRequestType">
+<xs:sequence>
+<xs:element name="country" type="xs:string"></xs:element>
+<xs:element name="listFiscalNumber" type="xs:string" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enrollContractResType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="brandCode" type="xs:int"></xs:element>
+<xs:element name="brandDescription" type="xs:string"></xs:element>
+<xs:element name="currencyCode" type="xs:string"></xs:element>
+<xs:element name="countryDescription" type="xs:string"></xs:element>
+<xs:element name="countryCode" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="currencyDescription" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="code" type="xs:string"></xs:element>
+<xs:element name="description" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="availableContractResType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="amount" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="taxPlanCode" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="taxPlan" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="brandCode" type="xs:int"></xs:element>
+<xs:element name="brandDescription" type="xs:string"></xs:element>
+<xs:element name="currencyCode" type="xs:string"></xs:element>
+<xs:element name="currencyDescription" type="xs:string"></xs:element>
+<xs:element name="countryCode" type="xs:string"></xs:element>
+<xs:element name="countryDescription" type="xs:string"></xs:element>
+<xs:element name="ent1" type="xs:int"></xs:element>
+<xs:element name="ent2" type="xs:int"></xs:element>
+<xs:element name="ent3" type="xs:int"></xs:element>
+<xs:element name="ent4" type="xs:int"></xs:element>
+<xs:element name="ent5" type="xs:int"></xs:element>
+<xs:element name="entity" type="xs:int"></xs:element>
+<xs:element name="office" type="xs:int"></xs:element>
+<xs:element name="dateFrom" type="xs:date"></xs:element>
+<xs:element name="dateTo" type="xs:date"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activeContractsReqType">
+<xs:sequence>
+<xs:element name="fiscalNumbers" type="xs:string" maxOccurs="unbounded"></xs:element>
+<xs:element name="country" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enrollContractsReqType">
+<xs:sequence>
+<xs:element name="contracts" type="tns:enrollContractReqType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enrollContractReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="userCod" type="xs:string"></xs:element>
+<xs:element name="productCode" type="xs:int"></xs:element>
+<xs:element name="country" type="xs:string"></xs:element>
+<xs:element name="amount" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tax" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent1" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent2" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent3" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent4" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="ent5" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="taxCode" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="entity" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="office" type="xs:int" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="availableContractsReqType">
+<xs:sequence>
+<xs:element name="fiscalNumbers" type="xs:string" maxOccurs="unbounded"></xs:element>
+<xs:element name="country" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activeContractResType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="availableAmount" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tax" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="dateFrom" type="xs:date"></xs:element>
+<xs:element name="dateTo" type="xs:date"></xs:element>
+<xs:element name="brandCode" type="xs:int"></xs:element>
+<xs:element name="brandDescription" type="xs:string"></xs:element>
+<xs:element name="renewal_Auto" type="xs:boolean"></xs:element>
+<xs:element name="currencyCode" type="xs:string"></xs:element>
+<xs:element name="currencyDescription" type="xs:string"></xs:element>
+<xs:element name="countryCode" type="xs:string"></xs:element>
+<xs:element name="countryDescription" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

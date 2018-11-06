@@ -1,0 +1,381 @@
+<definitions name="userServices" targetNamespace="http://www.firstdata.com/fdcomar/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.firstdata.com/fdcomar/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <types>
+  <xs:schema xmlns:tns="http://www.firstdata.com/fdcomar/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.firstdata.com/fdcomar/">
+
+<xs:element name="changePassword" type="tns:changePasswordReqType"></xs:element>
+
+<xs:element name="changePasswordResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="login" type="tns:loginReqType"></xs:element>
+
+<xs:element name="loginResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="recoveryPassword" type="tns:recoveryPasswordReqType"></xs:element>
+
+<xs:element name="recoveryPasswordResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="secondaryUserAdd" type="tns:secondaryUserAddReqType"></xs:element>
+
+<xs:element name="secondaryUserAddResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="commerces" type="tns:secondaryUsercommercesResType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="selfManagement" type="tns:selfManagementReqType"></xs:element>
+
+<xs:element name="selfManagementResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="questionAnswers" type="tns:questionAnswersType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="userAdd" type="tns:userAddReqType"></xs:element>
+
+<xs:element name="userAddResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="validateQuestions" type="tns:validateQuestionsReqType"></xs:element>
+
+<xs:element name="validateQuestionsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="returnType">
+<xs:sequence>
+<xs:element name="code" type="xs:string"></xs:element>
+<xs:element name="description" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ReturnServiceType">
+<xs:sequence>
+<xs:element name="return" type="tns:returnType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandsListType">
+<xs:sequence>
+<xs:element name="brand" type="tns:brandNumberType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandNumberType">
+<xs:sequence>
+<xs:element name="brandNumber" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CommerceQueryException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commercesListType">
+<xs:sequence>
+<xs:element name="commerce" type="tns:commerceNumberType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commerceNumberType">
+<xs:sequence>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secondaryUsercommercesResType">
+<xs:sequence>
+<xs:element name="commerce" type="tns:secondaryUsercommerceResType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secondaryUsercommerceResType">
+<xs:sequence>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+<xs:element name="checkDigit" type="xs:int"></xs:element>
+<xs:element name="stateCommerce" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userAddReqType">
+<xs:sequence>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="newPassword" type="xs:string"></xs:element>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secondaryUserAddReqType">
+<xs:sequence>
+<xs:element name="secondaryUser" type="xs:string"></xs:element>
+<xs:element name="mainUser" type="xs:string"></xs:element>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="commerces" type="tns:secondaryUserCommercesDataType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secondaryUserCommercesDataType">
+<xs:sequence>
+<xs:element name="commerce" type="tns:secondaryUserCommerceDataType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="secondaryUserCommerceDataType">
+<xs:sequence>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+<xs:element name="checkDigit" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recoveryPasswordReqType">
+<xs:sequence>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="newPassword" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="answersListType">
+<xs:sequence>
+<xs:element name="answer" type="tns:answerType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="answerType">
+<xs:sequence>
+<xs:element name="answerId" type="xs:int"></xs:element>
+<xs:element name="answerDescription" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginReqType">
+<xs:sequence>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="currentPassword" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="questionAnswersType">
+<xs:sequence>
+<xs:element name="questionId" type="xs:int"></xs:element>
+<xs:element name="questionDescription" type="xs:string"></xs:element>
+<xs:element name="answers" type="tns:answersListType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="selfManagementReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="questionAnswerIdType">
+<xs:sequence>
+<xs:element name="questionId" type="xs:int"></xs:element>
+<xs:element name="answerId" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateQuestionsReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+<xs:element name="answers" type="tns:questionAnswersListType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="questionAnswersListType">
+<xs:sequence>
+<xs:element name="answer" type="tns:questionAnswerIdType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changePasswordReqType">
+<xs:sequence>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="currentPassword" type="xs:string"></xs:element>
+<xs:element name="newPassword" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+ </types>
+ <message name="selfManagement">
+  <part element="tns:selfManagement" name="parameters"/>
+ </message>
+ <message name="selfManagementResponse">
+  <part element="tns:selfManagementResponse" name="parameters"/>
+ </message>
+ <message name="userAdd">
+  <part element="tns:userAdd" name="parameters"/>
+ </message>
+ <message name="userAddResponse">
+  <part element="tns:userAddResponse" name="parameters"/>
+ </message>
+ <message name="validateQuestions">
+  <part element="tns:validateQuestions" name="parameters"/>
+ </message>
+ <message name="validateQuestionsResponse">
+  <part element="tns:validateQuestionsResponse" name="parameters"/>
+ </message>
+ <message name="secondaryUserAdd">
+  <part element="tns:secondaryUserAdd" name="parameters"/>
+ </message>
+ <message name="secondaryUserAddResponse">
+  <part element="tns:secondaryUserAddResponse" name="parameters"/>
+ </message>
+ <message name="changePassword">
+  <part element="tns:changePassword" name="parameters"/>
+ </message>
+ <message name="changePasswordResponse">
+  <part element="tns:changePasswordResponse" name="parameters"/>
+ </message>
+ <message name="login">
+  <part element="tns:login" name="parameters"/>
+ </message>
+ <message name="loginResponse">
+  <part element="tns:loginResponse" name="parameters"/>
+ </message>
+ <message name="recoveryPassword">
+  <part element="tns:recoveryPassword" name="parameters"/>
+ </message>
+ <message name="recoveryPasswordResponse">
+  <part element="tns:recoveryPasswordResponse" name="parameters"/>
+ </message>
+ <portType name="UserServicesPortType">
+  <operation name="selfManagement">
+   <input message="tns:selfManagement" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/selfManagementRequest"/>
+   <output message="tns:selfManagementResponse" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/selfManagementResponse"/>
+  </operation>
+  <operation name="userAdd">
+   <input message="tns:userAdd" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/userAddRequest"/>
+   <output message="tns:userAddResponse" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/userAddResponse"/>
+  </operation>
+  <operation name="validateQuestions">
+   <input message="tns:validateQuestions" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/validateQuestionsRequest"/>
+   <output message="tns:validateQuestionsResponse" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/validateQuestionsResponse"/>
+  </operation>
+  <operation name="secondaryUserAdd">
+   <input message="tns:secondaryUserAdd" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/secondaryUserAddRequest"/>
+   <output message="tns:secondaryUserAddResponse" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/secondaryUserAddResponse"/>
+  </operation>
+  <operation name="changePassword">
+   <input message="tns:changePassword" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/changePasswordRequest"/>
+   <output message="tns:changePasswordResponse" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/changePasswordResponse"/>
+  </operation>
+  <operation name="login">
+   <input message="tns:login" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/loginRequest"/>
+   <output message="tns:loginResponse" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/loginResponse"/>
+  </operation>
+  <operation name="recoveryPassword">
+   <input message="tns:recoveryPassword" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/recoveryPasswordRequest"/>
+   <output message="tns:recoveryPasswordResponse" wsam:Action="http://www.firstdata.com/fdcomar/UserServicesPortType/recoveryPasswordResponse"/>
+  </operation>
+ </portType>
+ <binding name="UserServicesImplPortBinding" type="tns:UserServicesPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="selfManagement">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="userAdd">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="validateQuestions">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="secondaryUserAdd">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="changePassword">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="login">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="recoveryPassword">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+ </binding>
+ <service name="userServices">
+  <port binding="tns:UserServicesImplPortBinding" name="UserServicesImplPort">
+   <soap:address location="http://soadev2:8080/fdcomar-proxy/http/fdcomar/userServices"/>
+  </port>
+ </service>
+</definitions>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.10 svn-revision#919b322c92f13ad085a933e8dd6dd35d4947364b. --><xs:schema xmlns:tns="http://www.firstdata.com/fdcomar/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.firstdata.com/fdcomar/">
+
+<xs:element name="findAlertsByUser" type="tns:findAlertsByUserReqType"></xs:element>
+
+<xs:element name="findAlertsByUserResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="alerts" type="tns:alertsByUserType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="modifyAlert" type="tns:modifyAlertReqType"></xs:element>
+
+<xs:element name="modifyAlertResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="suscribeAlert" type="tns:suscribeAlertReqType"></xs:element>
+
+<xs:element name="suscribeAlertResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="unsuscribeAlert" type="tns:unsuscribeAlertReqType"></xs:element>
+
+<xs:element name="unsuscribeAlertResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="productType">
+<xs:sequence>
+<xs:element name="productCode" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="productsType">
+<xs:sequence>
+<xs:element name="product" type="tns:productType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="suscribeAlertReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:long"></xs:element>
+<xs:element name="commerces" type="tns:commercesListType"></xs:element>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="alertId" type="xs:int"></xs:element>
+<xs:element name="parameters" type="tns:paramsAlertsSuscribeType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commercesListType">
+<xs:sequence>
+<xs:element name="commerce" type="tns:commerceNumberType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commerceNumberType">
+<xs:sequence>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+<xs:element name="checkDigit" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paramsAlertsSuscribeType">
+<xs:sequence>
+<xs:element name="parameter" type="tns:paramAlertsSuscribeType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paramAlertsSuscribeType">
+<xs:sequence>
+<xs:element name="key" type="xs:string"></xs:element>
+<xs:element name="value" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ReturnServiceType">
+<xs:sequence>
+<xs:element name="return" type="tns:returnType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnType">
+<xs:sequence>
+<xs:element name="code" type="xs:string"></xs:element>
+<xs:element name="description" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="methodsAlertsByUserType">
+<xs:sequence>
+<xs:element name="method" type="tns:methodAlertsByUserType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="methodAlertsByUserType">
+<xs:sequence>
+<xs:element name="sendMethod" type="xs:string"></xs:element>
+<xs:element name="param" type="tns:methodParamAlertsByUserType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="methodParamAlertsByUserType">
+<xs:sequence>
+<xs:element name="key" type="xs:string"></xs:element>
+<xs:element name="valor" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paramAlertsByUserType">
+<xs:sequence>
+<xs:element name="key" type="xs:string"></xs:element>
+<xs:element name="valor" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alertsByUserType">
+<xs:sequence>
+<xs:element name="alert" type="tns:alertByUserType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alertByUserType">
+<xs:sequence>
+<xs:element name="alertId" type="xs:int"></xs:element>
+<xs:element name="alertDescription" type="xs:string"></xs:element>
+<xs:element name="params" type="tns:paramsAlertsByUserType" minOccurs="0"></xs:element>
+<xs:element name="methods" type="tns:methodsAlertsByUserType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paramsAlertsByUserType">
+<xs:sequence>
+<xs:element name="param" type="tns:paramAlertsByUserType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unsuscribeAlertReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:long"></xs:element>
+<xs:element name="commerces" type="tns:commercesListType"></xs:element>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="alertId" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modifyAlertReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:long"></xs:element>
+<xs:element name="commerces" type="tns:commercesListType"></xs:element>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="alertId" type="xs:int"></xs:element>
+<xs:element name="parameters" type="tns:paramsAlertsModifyType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paramsAlertsModifyType">
+<xs:sequence>
+<xs:element name="parameter" type="tns:paramAlertsModifyType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paramAlertsModifyType">
+<xs:sequence>
+<xs:element name="key" type="xs:string"></xs:element>
+<xs:element name="value" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAlertsByUserReqType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:long"></xs:element>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+<xs:element name="checkDigit" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CommerceQueryException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandNumberType">
+<xs:sequence>
+<xs:element name="brandNumber" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandsListType">
+<xs:sequence>
+<xs:element name="brand" type="tns:brandNumberType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,45 @@
+<wsdl:definitions targetNamespace='http://soa.jboss.org/support'
+	xmlns:esbns1='http://www.firstdata.com/mail/' xmlns:esbns2='http://www.firstdata.com/mail/'
+	xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://soa.jboss.org/support'
+	xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'>
+	<wsdl:types>
+		<xs:schema targetNamespace='http://www.firstdata.com/mail/'
+			version='1.0' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+			<xs:include schemaLocation='sendMailIn.xsd' />
+		</xs:schema>
+		<xs:schema targetNamespace='http://www.firstdata.com/mail/'
+			version='1.0' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+			<xs:include schemaLocation='sendMailOut.xsd' />
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name='sendMailReq'>
+		<wsdl:part element='esbns1:sendMail' name='in'></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name='sendMailRes'>
+		<wsdl:part element='esbns1:sendMailResponse' name='out'></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name='sendMailPortType'>
+		<wsdl:operation name='sendMailOp'>
+			<wsdl:input message='tns:sendMailReq' name='sendMailReq'></wsdl:input>
+			<wsdl:output message='tns:sendMailRes' name='sendMailRes'></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name='sendMailBinding' type='tns:sendMailPortType'>
+		<soap:binding style='document'
+			transport='http://schemas.xmlsoap.org/soap/http' />
+		<wsdl:operation name='sendMailOp'>
+			<soap:operation soapAction='http://soa.jboss.org/support/sendMailOpResp' />
+			<wsdl:input name='sendMailReq'>
+				<soap:body use='literal' />
+			</wsdl:input>
+			<wsdl:output name='sendMailRes'>
+				<soap:body use='literal' />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name='sendMailService'>
+		<wsdl:port binding='tns:sendMailBinding' name='sendMailPortType'>
+			<soap:address location='TO_BE_DEFINED' />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

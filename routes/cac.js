@@ -10,37 +10,40 @@ module.exports = (function() {
 		if ( req.body['soap-env:'+'envelope'] != undefined)
 			soap = 'soap-env:' ;
 
-		var ns2 = '';
+		var ns2 = 'ns2:';
 
 		var body = req.body[soap+'envelope'][soap+'body'][0] || '';
-		console.log('body :' + body );
+		console.log( "CAC");
+		console.log( JSON.stringify(body));
 
-		if((ns2+'checkavailability') in body){
+		if(ns2+'checkavailability' in body){
 			checkAvailability(req,res);
 			return;
 		}
 		
-		if((ns2+'availablecontracts') in body){
+		if(ns2+'availablecontracts' in body){
 			availableContracts(req,res);
 			return;
 		}
 		
-		if((ns2+'activecontracts') in body){
+		if(ns2+'activecontracts' in body){
 			activeContracts(req,res);
 			return;
 		}
 		
-		if((ns2+'cancelcontractsautorenewal') in body){
+		if(ns2+'cancelcontractsautorenewal' in body){
 			cancelContractsAutoRenewal(req,res);
 			return;
 		}
 		
-		if((ns2+'enrollcontracts') in body){
+		if(ns2+'enrollcontracts' in body){
 			enrollContracts(req,res);
 			return;
 		}
 		
-		if((ns2+'advancedsalesavailability') in body){
+		console.log("Cac:advancedsalesavailability") ;
+		if(ns2+'advancedsalesavailability' in body){
+			console.log("advancedsalesavailability X") ;
 			advancedSalesAvailability(req,res);
 			return;
 		}

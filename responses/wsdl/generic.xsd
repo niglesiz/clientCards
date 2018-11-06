@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema elementFormDefault="qualified"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.firstdata.com/mail/generic"
+	xmlns:tns="http://www.firstdata.com/mail/generic">
+
+	<xsd:complexType name="attachment">
+		<xsd:complexContent>
+			<xsd:extension base="tns:abstractServiceEntity">
+				<xsd:sequence>
+					<xsd:element name="contentType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="data" type="xsd:base64Binary" minOccurs="0"/>
+					<xsd:element name="filename" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="inline" type="xsd:boolean"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="abstractServiceEntity" abstract="true">
+		<xsd:sequence/>
+	</xsd:complexType>
+
+</xsd:schema>
+

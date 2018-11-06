@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.10 svn-revision#919b322c92f13ad085a933e8dd6dd35d4947364b. --><xs:schema xmlns:tns="http://www.firstdata.com/fdadvancedsale/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.firstdata.com/fdadvancedsale/">
+
+<xs:element name="advancedSalesAvailability" type="tns:advancedSalesAvailabilityRequestType"></xs:element>
+
+<xs:element name="advancedSalesAvailabilityResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="availableProduct" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="returnService" type="tns:ReturnServiceType" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="financingChange" type="tns:financingChangeReqType"></xs:element>
+
+<xs:element name="financingChangeResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="commercesRes" type="tns:CommerceResType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="financingChangeReqType">
+<xs:sequence>
+<xs:element name="commerces" type="tns:CommerceReqType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CommerceReqType">
+<xs:sequence>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+<xs:element name="checkDigit" type="xs:int"></xs:element>
+<xs:element name="financingType" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ReturnServiceType">
+<xs:sequence>
+<xs:element name="return" type="tns:returnType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnType">
+<xs:sequence>
+<xs:element name="code" type="xs:string"></xs:element>
+<xs:element name="description" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CommerceResType">
+<xs:sequence>
+<xs:element name="commerceNumber" type="xs:string"></xs:element>
+<xs:element name="checkDigit" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="advancedSalesAvailabilityRequestType">
+<xs:sequence>
+<xs:element name="country" type="xs:int"></xs:element>
+<xs:element name="listFiscalNumber" type="xs:string" maxOccurs="unbounded"></xs:element>
+<xs:element name="listProductCode" type="xs:int" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

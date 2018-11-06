@@ -1,0 +1,54 @@
+{
+        "returnService": {
+          "return": [{
+            "code": "0",
+            "description": "enrollContracts realizado con exito"
+          }]
+        },
+        "contractsRes": [
+          {
+            "fiscalNumber": "30516017267",
+            "brandCode": "1000",
+            "brandDescription": "MASTERCARD",
+            "currencyCode": "032",
+            "currencyDescription": "Pesos",
+            "countryCode": "1",
+            "countryDescription": "Argentina",
+            "code": "1",
+            "description": "NO HAY DISPONIBLE PARA EL CONTRATO"
+          },
+          {
+            "fiscalNumber": "30516017267",
+            "brandCode": "1000",
+            "brandDescription": "MASTERCARD",
+            "currencyCode": "032",
+            "currencyDescription": "Pesos",
+            "countryCode": "1",
+            "countryDescription": "Argentina",
+            "code": "1",
+            "description": "NO HAY DISPONIBLE PARA EL CONTRATO"
+          },
+          {
+            "fiscalNumber": "30522211563",
+            "brandCode": "1000",
+            "brandDescription": "MASTERCARD",
+            "countryCode": "1",
+            "countryDescription": "Argentina",
+            "currencyCode": "032",
+            "currencyDescription": "Pesos",
+            "code": "1",
+            "description": "CONTRATO DUPLICADO"
+          },
+          {
+            "fiscalNumber": "30522211563",
+            "brandCode": "1000",
+            "brandDescription": "MASTERCARD",
+            "currencyCode": "032",
+            "currencyDescription": "Pesos",
+            "countryCode": "1",
+            "countryDescription": "Argentina",
+            "code": "1",
+            "description": "CONTRATO DUPLICADO"
+          }
+        ]
+}

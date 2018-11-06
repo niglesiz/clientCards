@@ -1,0 +1,112 @@
+<definitions name="commerceQueryServices" targetNamespace="http://www.firstdata.com/fdcomar/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.firstdata.com/fdcomar/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <types>
+  <xsd:schema>
+   <xsd:import namespace="http://www.firstdata.com/fdcomar/" schemaLocation="http://10.74.14.14:8080/fdcomar-proxy/http/fdcomar/commerceQueryServices?wsdl&amp;resource=http-5453988296502114082.tmp&amp;serviceCat=fdcomar&amp;serviceName=commerceQueryServices&amp;protocol=http"/>
+  </xsd:schema>
+ </types>
+ <message name="installmentsPlan">
+  <part element="tns:installmentsPlan" name="parameters"/>
+ </message>
+ <message name="installmentsPlanResponse">
+  <part element="tns:installmentsPlanResponse" name="parameters"/>
+ </message>
+ <message name="commercesDesAdd">
+  <part element="tns:commercesDesAdd" name="parameters"/>
+ </message>
+ <message name="commercesDesAddResponse">
+  <part element="tns:commercesDesAddResponse" name="parameters"/>
+ </message>
+ <message name="findCommerces">
+  <part element="tns:findCommerces" name="parameters"/>
+ </message>
+ <message name="findCommercesResponse">
+  <part element="tns:findCommercesResponse" name="parameters"/>
+ </message>
+ <message name="commercesAvailable">
+  <part element="tns:commercesAvailable" name="parameters"/>
+ </message>
+ <message name="commercesAvailableResponse">
+  <part element="tns:commercesAvailableResponse" name="parameters"/>
+ </message>
+ <message name="commercesAdd">
+  <part element="tns:commercesAdd" name="parameters"/>
+ </message>
+ <message name="commercesAddResponse">
+  <part element="tns:commercesAddResponse" name="parameters"/>
+ </message>
+ <portType name="CommerceQueryServicesPortType">
+  <operation name="installmentsPlan">
+   <input message="tns:installmentsPlan" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/installmentsPlanRequest"/>
+   <output message="tns:installmentsPlanResponse" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/installmentsPlanResponse"/>
+  </operation>
+  <operation name="commercesDesAdd">
+   <input message="tns:commercesDesAdd" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/commercesDesAddRequest"/>
+   <output message="tns:commercesDesAddResponse" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/commercesDesAddResponse"/>
+  </operation>
+  <operation name="findCommerces">
+   <input message="tns:findCommerces" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/findCommercesRequest"/>
+   <output message="tns:findCommercesResponse" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/findCommercesResponse"/>
+  </operation>
+  <operation name="commercesAvailable">
+   <input message="tns:commercesAvailable" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/commercesAvailableRequest"/>
+   <output message="tns:commercesAvailableResponse" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/commercesAvailableResponse"/>
+  </operation>
+  <operation name="commercesAdd">
+   <input message="tns:commercesAdd" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/commercesAddRequest"/>
+   <output message="tns:commercesAddResponse" wsam:Action="http://www.firstdata.com/fdcomar/CommerceQueryServicesPortType/commercesAddResponse"/>
+  </operation>
+ </portType>
+ <binding name="CommerceQueryServicesImplPortBinding" type="tns:CommerceQueryServicesPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="installmentsPlan">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="commercesDesAdd">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="findCommerces">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="commercesAvailable">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+  <operation name="commercesAdd">
+   <soap:operation soapAction=""/>
+   <input>
+    <soap:body use="literal"/>
+   </input>
+   <output>
+    <soap:body use="literal"/>
+   </output>
+  </operation>
+ </binding>
+ <service name="commerceQueryServices">
+  <port binding="tns:CommerceQueryServicesImplPortBinding" name="CommerceQueryServicesImplPort">
+   <soap:address location="http://soadev1:8080/fdcomar-proxy/http/fdcomar/commerceQueryServices"/>
+  </port>
+ </service>
+</definitions>

@@ -1,0 +1,9 @@
+{
+        "returnService": {
+          "return": [{
+            "code": "1",
+            "description": "checkAvailability realizado con exito"
+          }]
+        },
+        "isAvailable": "false"
+}

@@ -1,0 +1,275 @@
+  <?xml version="1.0" encoding="UTF-8" ?> 
+
+<xs:schema xmlns:tns="http://www.firstdata.com/fdcomar/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.firstdata.com/fdcomar/">
+  <xs:element name="commercesAdd" type="tns:commercesAddReqType" /> 
+<xs:element name="commercesAddResponse">
+<xs:complexType>
+ <xs:sequence>
+  <xs:element name="returnService" type="tns:ReturnServiceType" /> 
+  <xs:element name="commerces" type="tns:commercesAddResType" /> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+  <xs:element name="commercesAvailable" type="tns:commercesAvailableReqType" /> 
+<xs:element name="commercesAvailableResponse">
+<xs:complexType>
+ <xs:sequence>
+  <xs:element name="returnService" type="tns:ReturnServiceType" /> 
+  <xs:element name="elementsNumber" type="xs:string" /> 
+  <xs:element name="commerces" type="tns:commercesAvailableType" /> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+  <xs:element name="commercesDesAdd" type="tns:commercesDesAddReqType" /> 
+ <xs:element name="commercesDesAddResponse">
+  <xs:complexType>
+ <xs:sequence>
+  <xs:element name="returnService" type="tns:ReturnServiceType" /> 
+  <xs:element name="commerces" type="tns:commercesDesAddResType" /> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+  <xs:element name="findCommerces" type="tns:findCommercesReqType" /> 
+ <xs:element name="findCommercesResponse">
+ <xs:complexType>
+ <xs:sequence>
+  <xs:element name="returnService" type="tns:ReturnServiceType" /> 
+  <xs:element name="elementsNumber" type="xs:string" /> 
+  <xs:element name="commerces" type="tns:commercesType" /> 
+  <xs:element name="businessName" type="xs:string" /> 
+  <xs:element name="premium" type="xs:int" /> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+  <xs:element name="installmentsPlan" type="tns:installmentsPlanReqType" /> 
+ <xs:element name="installmentsPlanResponse">
+ <xs:complexType>
+ <xs:sequence>
+  <xs:element name="returnService" type="tns:ReturnServiceType" /> 
+  <xs:element name="brands" type="tns:brandsInstallmentsListResType" /> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+ <xs:complexType name="returnType">
+<xs:sequence>
+  <xs:element name="code" type="xs:string" /> 
+  <xs:element name="description" type="xs:string" /> 
+  </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="brandsType">
+<xs:sequence>
+  <xs:element name="brand" type="tns:brandType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="brandType">
+ <xs:sequence>
+  <xs:element name="codBrand" type="xs:int" /> 
+  <xs:element name="financeCurrencyLocal" type="tns:financeType" /> 
+  <xs:element name="financeDollar" type="tns:financeType" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="financeType">
+ <xs:sequence>
+  <xs:element name="discountRate" type="xs:string" /> 
+  <xs:element name="installmentNum" type="xs:int" /> 
+  <xs:element name="paymentTerm" type="xs:int" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="installmentResType">
+<xs:sequence>
+  <xs:element name="installments" type="xs:string" /> 
+  <xs:element name="coefficient" type="xs:string" /> 
+  <xs:element name="tax" type="xs:string" /> 
+  <xs:element name="tea" type="xs:string" /> 
+  <xs:element name="financeSaleFactor" type="xs:string" /> 
+  <xs:element name="cft" type="xs:string" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesAddReqType">
+ <xs:sequence>
+  <xs:element name="user" type="xs:string" /> 
+  <xs:element name="fiscalNumber" type="xs:string" /> 
+  <xs:element name="commerces" type="tns:commercesAddType" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesAddType">
+<xs:sequence>
+  <xs:element name="commerce" type="tns:commerceAddType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commerceAddType">
+ <xs:sequence>
+  <xs:element name="commerceNumber" type="xs:int" /> 
+  <xs:element name="checkDigit" type="xs:int" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="installmentBrandReqType">
+ <xs:sequence>
+  <xs:element name="brandCod" type="xs:string" /> 
+  <xs:element name="installments" type="xs:int" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="brandsInstallmentsListResType">
+ <xs:sequence>
+  <xs:element name="brand" type="tns:brandInstallmentResType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="brandInstallmentResType">
+ <xs:sequence>
+  <xs:element name="brandCod" type="xs:string" /> 
+  <xs:element name="coefficient" type="xs:int" /> 
+  <xs:element name="installments" type="tns:installmentsListResType" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="installmentsListResType">
+ <xs:sequence>
+  <xs:element name="installment" type="tns:installmentResType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesListType">
+ <xs:sequence>
+  <xs:element name="commerce" type="tns:commerceNumberType" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commerceNumberType">
+ <xs:sequence>
+  <xs:element name="commerceNumber" type="xs:int" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesAddResType">
+ <xs:sequence>
+  <xs:element name="commerce" type="tns:commerceAddResType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commerceAddResType">
+ <xs:sequence>
+  <xs:element name="commerceNumber" type="xs:int" /> 
+  <xs:element name="checkDigit" type="xs:int" /> 
+  <xs:element name="stateCommerce" type="xs:string" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commerceAvailableType">
+ <xs:sequence>
+  <xs:element name="commerceNumber" type="xs:string" /> 
+  <xs:element name="checkDigit" type="xs:int" /> 
+  <xs:element name="stateCommerce" type="xs:string" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="ReturnServiceType">
+ <xs:sequence>
+  <xs:element name="return" type="tns:returnType" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commerceDesAddType">
+ <xs:sequence>
+  <xs:element name="commerceNumber" type="xs:int" /> 
+  <xs:element name="checkDigit" type="xs:int" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesType">
+ <xs:sequence>
+  <xs:element name="commerce" type="tns:commerceType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commerceType">
+ <xs:sequence>
+  <xs:element name="commerceNumber" type="xs:string" /> 
+  <xs:element name="checkDigit" type="xs:int" /> 
+  <xs:element name="commerceName" type="xs:string" /> 
+  <xs:element name="addressAdditional" type="xs:string" /> 
+  <xs:element name="addressStreet" type="xs:string" /> 
+  <xs:element name="addressNumber" type="xs:string" /> 
+  <xs:element name="addressFloor" type="xs:string" /> 
+  <xs:element name="addressLocation" type="xs:string" /> 
+  <xs:element name="addressCountry" type="xs:string" /> 
+  <xs:element name="addressProvince" type="xs:string" /> 
+  <xs:element name="addressPostCode" type="xs:string" /> 
+  <xs:element name="branch" type="xs:int" /> 
+  <xs:element name="payingEntity" type="xs:int" /> 
+  <xs:element name="deleteDescription" type="xs:string" /> 
+  <xs:element name="dateDelete" type="xs:date" /> 
+  <xs:element name="paymentMethod" type="xs:int" /> 
+  <xs:element name="account" type="xs:string" /> 
+  <xs:element name="taxType" type="xs:string" /> 
+  <xs:element name="grossIncome" type="xs:string" /> 
+  <xs:element name="brands" type="tns:brandsType" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesAvailableType">
+ <xs:sequence>
+  <xs:element name="commerce" type="tns:commerceAvailableType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesDesAddResType">
+ <xs:sequence>
+  <xs:element name="commerce" type="tns:commerceDesAddResType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commerceDesAddResType">
+ <xs:sequence>
+  <xs:element name="commerceNumber" type="xs:int" /> 
+  <xs:element name="checkDigit" type="xs:int" /> 
+  <xs:element name="stateCommerce" type="xs:string" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="installmentsPlanReqType">
+ <xs:sequence>
+  <xs:element name="fiscalNumber" type="xs:string" /> 
+  <xs:element name="commerceNumber" type="xs:int" /> 
+  <xs:element name="checkDigit" type="xs:int" /> 
+  <xs:element name="country" type="xs:int" /> 
+  <xs:element name="periodPayType" type="xs:string" /> 
+  <xs:element name="periodPay" type="xs:int" /> 
+  <xs:element name="brands" type="tns:installmentsBrandsListReqType" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="installmentsBrandsListReqType">
+ <xs:sequence>
+  <xs:element name="brand" type="tns:installmentBrandReqType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesDesAddReqType">
+ <xs:sequence>
+  <xs:element name="user" type="xs:string" /> 
+  <xs:element name="fiscalNumber" type="xs:string" /> 
+  <xs:element name="commerces" type="tns:commercesDesAddType" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesDesAddType">
+ <xs:sequence>
+  <xs:element name="commerce" type="tns:commerceDesAddType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="commercesAvailableReqType">
+ <xs:sequence>
+  <xs:element name="user" type="xs:string" /> 
+  <xs:element name="fiscalNumber" type="xs:string" /> 
+  <xs:element name="pageNumber" type="xs:string" /> 
+  <xs:element name="pageElementsNumber" type="xs:string" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="brandNumberType">
+ <xs:sequence>
+  <xs:element name="brandNumber" type="xs:int" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="brandsListType">
+  <xs:sequence>
+  <xs:element name="brand" type="tns:brandNumberType" maxOccurs="unbounded" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="findCommercesReqType">
+<xs:sequence>
+  <xs:element name="user" type="xs:string" /> 
+  <xs:element name="fiscalNumber" type="xs:string" /> 
+  <xs:element name="pageNumber" type="xs:string" /> 
+  <xs:element name="pageElementsNumber" type="xs:string" /> 
+  </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="CommerceQueryException">
+<xs:sequence>
+  <xs:element name="message" type="xs:string" minOccurs="0" /> 
+  <xs:element name="id" type="xs:string" minOccurs="0" /> 
+  </xs:sequence>
+  </xs:complexType>
+  </xs:schema>

@@ -1,0 +1,35 @@
+{
+
+        "returnService": {
+          "return": [{
+            "code": "0",
+            "description": "activeContracts realizado con exito"
+          }]
+        },
+        "contractsList": [
+          {
+            "fiscalNumber": "33999000709",
+            "availableAmount": "321654",
+            "tax": "10",
+            "dateFrom": "2018-02-09",
+            "dateTo": "2018-02-09",
+            "productCode": "1000",
+            "productDesc": "MasterCard",
+            "renewal_Auto": "1",
+            "currency": "1",
+            "country": "1"
+          },
+          {
+            "fiscalNumber": "33999000709",
+            "availableAmount": "321654",
+            "tax": "10",
+            "dateFrom": "2018-02-09",
+            "dateTo": "2018-02-09",
+            "productCode": "1000",
+            "productDesc": "ARGENCARD",
+            "renewal_Auto": "1",
+            "currency": "1",
+            "country": "1"
+          }
+        ]
+}

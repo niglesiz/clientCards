@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.10 svn-revision#919b322c92f13ad085a933e8dd6dd35d4947364b. -->
+<xs:schema xmlns:tns="http://www.firstdata.com/fdcomar/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.firstdata.com/fdcomar/">
+
+<xs:element name="brandsBoxQuery" type="tns:brandsBoxQueryReqType"></xs:element>
+
+<xs:element name="brandsBoxQueryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="brandsBox" type="tns:brandsBoxQueryListType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="commerceCreate" type="tns:commerceCreateReqType"></xs:element>
+
+<xs:element name="commerceCreateResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="commerceNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="requestNumber" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="mccQuery" type="tns:mccQueryReqType"></xs:element>
+
+<xs:element name="mccQueryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="mccList" type="tns:ramosmccQueryType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="salesModeQuery" type="tns:salesModeQueryReqType"></xs:element>
+
+<xs:element name="salesModeQueryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+<xs:element name="salesModeQuery" type="tns:salesModeQueryListType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="subscribePremiumReq" type="tns:subscribePremiumReqType"></xs:element>
+
+<xs:element name="subscribePremiumResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="unsubscribePremiumReq" type="tns:unsubscribePremiumReqType"></xs:element>
+
+<xs:element name="unsubscribePremiumResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="returnService" type="tns:ReturnServiceType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="productType">
+<xs:sequence>
+<xs:element name="productCode" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="productsType">
+<xs:sequence>
+<xs:element name="product" type="tns:productType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operationType">
+<xs:sequence>
+<xs:element name="operationCode" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operationsType">
+<xs:sequence>
+<xs:element name="operation" type="tns:operationType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ReturnServiceType">
+<xs:sequence>
+<xs:element name="return" type="tns:returnType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnType">
+<xs:sequence>
+<xs:element name="code" type="xs:string"></xs:element>
+<xs:element name="description" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fiscalNumberListType">
+<xs:sequence>
+<xs:element name="fiscalNumber" type="xs:string" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mccQueryReqType">
+<xs:sequence>
+<xs:element name="saleModeCode" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ramoCommerceAvailableType">
+<xs:sequence>
+<xs:element name="mccCode" type="xs:int"></xs:element>
+<xs:element name="mccDesc" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandsBoxQueryReqType">
+<xs:sequence>
+<xs:element name="mccCode" type="xs:int"></xs:element>
+<xs:element name="country" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commerceCreateReqType">
+<xs:sequence>
+<xs:element name="productCode" type="xs:string"></xs:element>
+<xs:element name="dateCreate" type="xs:date"></xs:element>
+<xs:element name="entity" type="xs:int"></xs:element>
+<xs:element name="branch" type="xs:int"></xs:element>
+<xs:element name="name" type="xs:string"></xs:element>
+<xs:element name="businessName" type="xs:string"></xs:element>
+<xs:element name="addressStreet" type="xs:string"></xs:element>
+<xs:element name="addressNumber" type="xs:string"></xs:element>
+<xs:element name="addressPostCode" type="xs:int"></xs:element>
+<xs:element name="addressLocation" type="xs:string"></xs:element>
+<xs:element name="addressProvince" type="xs:int"></xs:element>
+<xs:element name="addressCountry" type="xs:string"></xs:element>
+<xs:element name="responsible" type="xs:string"></xs:element>
+<xs:element name="documentType" type="xs:string"></xs:element>
+<xs:element name="documentNumber" type="xs:string"></xs:element>
+<xs:element name="mccCode" type="xs:string"></xs:element>
+<xs:element name="fiscalNumber" type="xs:string"></xs:element>
+<xs:element name="managementType" type="xs:int"></xs:element>
+<xs:element name="accountNumber" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salesModeQueryListType">
+<xs:sequence>
+<xs:element name="saleModeQuery" type="tns:saleModeQueryListType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="saleModeQueryListType">
+<xs:sequence>
+<xs:element name="saleModeCode" type="xs:int"></xs:element>
+<xs:element name="saleModeDesc" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unsubscribePremiumReqType">
+<xs:sequence>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="fiscalNumbers" type="tns:fiscalNumberListType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="subscribePremiumReqType">
+<xs:sequence>
+<xs:element name="user" type="xs:string"></xs:element>
+<xs:element name="fiscalNumbers" type="tns:fiscalNumberListType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandsBoxQueryListType">
+<xs:sequence>
+<xs:element name="brandBox" type="tns:brandsBoxResType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandsBoxResType">
+<xs:sequence>
+<xs:element name="brandCode" type="xs:string"></xs:element>
+<xs:element name="brandDescription" type="xs:string"></xs:element>
+<xs:element name="periodPayTypeCash" type="xs:string"></xs:element>
+<xs:element name="periodPayCash" type="xs:int"></xs:element>
+<xs:element name="discountPercentCash" type="xs:string"></xs:element>
+<xs:element name="periodPayTypeInstallments" type="xs:string"></xs:element>
+<xs:element name="periodPayInstallments" type="xs:int"></xs:element>
+<xs:element name="discountPercentInstallments" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salesModeQueryReqType">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ramosmccQueryType">
+<xs:sequence>
+<xs:element name="mcc" type="tns:ramoCommerceAvailableType" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CommerceQueryException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandNumberType">
+<xs:sequence>
+<xs:element name="brandNumber" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commercesListType">
+<xs:sequence>
+<xs:element name="commerce" type="tns:commerceNumberType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="commerceNumberType">
+<xs:sequence>
+<xs:element name="commerceNumber" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brandsListType">
+<xs:sequence>
+<xs:element name="brand" type="tns:brandNumberType" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

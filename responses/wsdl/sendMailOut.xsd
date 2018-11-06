@@ -1,0 +1,9 @@
+<xsd:schema elementFormDefault='qualified' targetNamespace='http://www.firstdata.com/mail/' xmlns:tns='http://www.firstdata.com/mail/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <xsd:element name='sendMailResponse' xmlns='http://www.firstdata.com/mail/'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element name='return' type='xsd:boolean'/>
+   </xsd:sequence>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:schema>

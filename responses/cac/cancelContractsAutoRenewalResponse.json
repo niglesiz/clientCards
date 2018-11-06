@@ -1,0 +1,43 @@
+{
+        "returnService": {
+          "return": [{
+            "code": "0",
+            "description": "cancelContractsAutoRenewal realizado con exito"
+          }]
+        },
+        "contractsRes": [
+          {
+            "fiscalNumber": "33999000709",
+            "brandCode": "1000",
+            "brandDescription": "MASTERCARD",
+            "countryCode": "1",
+            "countryDescription": "Argentina",
+            "currencyCode": "32",
+            "currencyDescription": "Pesos",
+            "code": "1",
+            "description": "CONTRATO INEXISTENTE"
+          },
+          {
+            "fiscalNumber": "33999000709",
+            "brandCode": "1030",
+            "brandDescription": "RED LIDER",
+            "countryCode": "1",
+            "countryDescription": "Argentina",
+            "currencyCode": "32",
+            "currencyDescription": "Pesos",
+            "code": "1",
+            "description": "CONTRATO DADO DE BAJA"
+          },
+          {
+            "fiscalNumber": "33999000709",
+            "brandCode": "1035",
+            "brandDescription": "LIDER ROU",
+            "countryCode": "1",
+            "countryDescription": "Argentina",
+            "currencyCode": "32",
+            "currencyDescription": "Pesos",
+            "code": "1",
+            "description": "CONTRATO DADO DE BAJA"
+          }
+        ]
+}
